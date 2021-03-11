@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IeQ-aF-dGd">
-                                <rect key="frame" x="30" y="74" width="354" height="658"/>
+                                <rect key="frame" x="30" y="74" width="354" height="609"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-Pc-bJf">
                                 <rect key="frame" x="217" y="782" width="177" height="60"/>
@@ -40,6 +40,20 @@
                                     <action selector="btnCapturePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1If-87-8WF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjt-CI-5n6">
+                                <rect key="frame" x="20" y="712" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.2234986424" green="0.54512697460000004" blue="0.84303623439999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nCH-Ue-m2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Uploda Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnUploadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QcB-8Q-aR5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -47,13 +61,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IeQ-aF-dGd" secondAttribute="trailing" constant="30" id="4TQ-Yw-9RW"/>
                             <constraint firstItem="Fj3-Pc-bJf" firstAttribute="leading" secondItem="rEP-1O-vGn" secondAttribute="trailing" constant="20" id="Kpx-LP-xOp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fj3-Pc-bJf" secondAttribute="trailing" constant="20" id="N3g-Bc-Zca"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wjt-CI-5n6" secondAttribute="trailing" constant="20" id="QQo-C7-d5i"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fj3-Pc-bJf" secondAttribute="bottom" constant="20" id="UHh-H0-b9G"/>
                             <constraint firstItem="IeQ-aF-dGd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="YtP-Aa-IN6"/>
                             <constraint firstItem="Fj3-Pc-bJf" firstAttribute="leading" secondItem="rEP-1O-vGn" secondAttribute="trailing" constant="20" id="b91-Op-BIU"/>
                             <constraint firstItem="IeQ-aF-dGd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="c38-EM-hrc"/>
+                            <constraint firstItem="rEP-1O-vGn" firstAttribute="top" secondItem="wjt-CI-5n6" secondAttribute="bottom" constant="20" id="eR2-Ac-48a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rEP-1O-vGn" secondAttribute="bottom" constant="20" id="fLb-o6-qcy"/>
-                            <constraint firstItem="rEP-1O-vGn" firstAttribute="top" secondItem="IeQ-aF-dGd" secondAttribute="bottom" constant="50" id="n6M-Yk-W8h"/>
                             <constraint firstItem="rEP-1O-vGn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="npl-xf-oZD"/>
+                            <constraint firstItem="wjt-CI-5n6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pko-F7-kOy"/>
+                            <constraint firstItem="wjt-CI-5n6" firstAttribute="top" secondItem="IeQ-aF-dGd" secondAttribute="bottom" constant="29" id="siV-bP-8rv"/>
                             <constraint firstItem="Fj3-Pc-bJf" firstAttribute="width" secondItem="rEP-1O-vGn" secondAttribute="width" id="yso-Ii-GEj"/>
                         </constraints>
                     </view>

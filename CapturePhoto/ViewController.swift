@@ -7,6 +7,7 @@
 
 import UIKit
 import MobileCoreServices
+import Alamofire
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
@@ -27,12 +28,15 @@ class ViewController: UIViewController {
         buttonGalary.setTitle("Galary", for: .normal)
         buttonGalary.setTitleColor(.white, for: .normal)
     }
-
+    @IBAction func btnUploadImage(_ sender: Any) {
+      callsendImageAPI()
+    }
+    
     @IBAction func btnCapturePhoto(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         //for camera front
-       // picker.cameraDevice = .front
+        // picker.cameraDevice = .front
         picker.delegate = self
         picker.allowsEditing = false
         //for live photo
@@ -60,4 +64,60 @@ extension ViewController :UIImagePickerControllerDelegate,UINavigationController
         }
         imageView.image = image
     }
+    
+    func uploadImage(){
+            
+      /*  let image = UIImage.init(named: "myImage")
+        let imgData = image!.jpegData(compressionQuality: 0.2)!
+
+         let parameters = ["name": ""] //Optional for extra parameter
+        
+        AF.upload(<#T##fileURL: URL##URL#>, to: <#T##URLConvertible#>)
+        
+            AF.request("http://202.40.191.226:8084/self-onboarding-app/", method: .post, parameters:parameters).response { response in
+                if let data = response.data {
+                    do{
+                      print(data)
+                    }catch let err{
+                     print("Print --->",err)
+                     
+                    }
+                }
+            }
+        */
+        }
+    
+    func callsendImageAPI(){
+       
+        let param: [String:Any] = [
+            "name":"Enamul"
+        ]
+     
+        
+        var image  = imageView.image
+        let imageData = image!.jpegData(compressionQuality: 0.50)
+        print(image, imageData!)
+        
+        //back
+        var back = UIImage()
+        back = UIImage(named: "qr_icon")!
+        let imageDataBack = back.jpegData(compressionQuality: 0.50)
+        print(back, imageDataBack!)
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData!, withName: "front", fileName: "front", mimeType: "image/png")
+            multipartFormData.append(imageDataBack!, withName: "back", fileName: "back", mimeType: "image/png")
+            for (key, value) in param {
+                multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+        },to: URL.init(string: "http://202.40.191.226:8084/self-onboarding-app/TestApi")!, usingThreshold: UInt64.init(), method: .post).response{ response in
+            
+           print("resposse ----")
+             
+            
+      }
+    }
+
+
 }
